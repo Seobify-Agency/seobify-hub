@@ -1,0 +1,37 @@
+# Seobify Migrate — Test planı (https://eski.com → https://yeni.com)
+# 7 tekil kural, 1 desen kuralı, 1 × 410
+# Uzun URL'lerde nginx isterse http { } içine: map_hash_bucket_size 256;
+
+# 1) http { } bloğuna ekleyin:
+map $uri $new_uri {
+    default "";
+    "/" "https://yeni.com/";
+    "/blog/2024/05/ozel/" "https://yeni.com/ozel-sayfa";
+    "/fiyat-$-listesi" "https://yeni.com/fiyatlar?para=%24";
+    "/hakkimizda/" "https://yeni.com/kurumsal/hakkimizda";
+    "/hizmetler/çay bahçesi/" "https://yeni.com/hizmet/%C3%A7ay-bah%C3%A7esi";
+}
+
+map $request_uri $new_uri_q {
+    default "";
+    "/index.php?id=5" "https://yeni.com/urun/5";
+}
+
+map $uri $gone_uri {
+    default 0;
+    "/eski-kampanya/" 1;
+}
+
+# 2) server { } bloğuna ekleyin:
+if ($gone_uri) {
+    return 410;
+}
+if ($new_uri_q) {
+    return 301 $new_uri_q;
+}
+if ($new_uri) {
+    return 301 $new_uri$is_args$args;
+}
+
+# Desen kuralları
+rewrite "^/blog/\d{4}/\d{2}/(.+)$" https://yeni.com/makale/$1 permanent;

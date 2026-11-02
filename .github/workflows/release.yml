@@ -1,0 +1,91 @@
+# Builds one tool's Windows installer (NSIS) and
+# publishes a GitHub release. Trigger: push a tag `seobify-<app>-v<version>` whose version
+# matches apps/<app>/package.json, or run it manually with that tag.
+name: Release
+
+on:
+  push:
+    tags: ["seobify-*-v*"]
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "Existing tag, e.g. seobify-log-v0.1.7"
+        required: true
+
+permissions:
+  contents: write
+
+jobs:
+  meta:
+    runs-on: ubuntu-latest
+    outputs:
+      tag: ${{ steps.m.outputs.tag }}
+      app: ${{ steps.m.outputs.app }}
+      version: ${{ steps.m.outputs.version }}
+      name: ${{ steps.m.outputs.name }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.inputs.tag || github.ref_name }}
+      - id: m
+        shell: bash
+        run: |
+          TAG="${{ github.event.inputs.tag || github.ref_name }}"
+          APP="${TAG#seobify-}"; APP="${APP%-v*}"; VER="${TAG##*-v}"
+          test -d "apps/$APP" || { echo "unknown app $APP"; exit 1; }
+          PKG=$(node -p "require('./apps/$APP/package.json').version")
+          test "$PKG" = "$VER" || { echo "tag version $VER != package.json $PKG"; exit 1; }
+          NAME=$(node -p "require('./apps/$APP/src-tauri/tauri.conf.json').productName")
+          { echo "tag=$TAG"; echo "app=$APP"; echo "version=$VER"; echo "name=$NAME"; } >> "$GITHUB_OUTPUT"
+      - name: Create draft release
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          TAG="${{ steps.m.outputs.tag }}"
+          NOTES="release-notes/$TAG.md"
+          if [ ! -f "$NOTES" ]; then printf '%s %s\n\nInstall: see README.\n' "${{ steps.m.outputs.name }}" "${{ steps.m.outputs.version }}" > /tmp/notes.md; NOTES=/tmp/notes.md; fi
+          gh release view "$TAG" >/dev/null 2>&1 || gh release create "$TAG" --draft --verify-tag --title "${{ steps.m.outputs.name }} v${{ steps.m.outputs.version }}" --notes-file "$NOTES"
+
+  build:
+    needs: meta
+    runs-on: windows-latest
+    defaults:
+      run:
+        shell: bash
+        working-directory: apps/${{ needs.meta.outputs.app }}
+    env:
+      APP: ${{ needs.meta.outputs.app }}
+      VER: ${{ needs.meta.outputs.version }}
+      NAME: ${{ needs.meta.outputs.name }}
+      TAG: ${{ needs.meta.outputs.tag }}
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ needs.meta.outputs.tag }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: apps/${{ needs.meta.outputs.app }}/package-lock.json
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: apps/${{ needs.meta.outputs.app }}/src-tauri
+      - run: npm ci --no-audit --no-fund
+      - run: npm test
+      - run: cargo test --manifest-path src-tauri/Cargo.toml
+      - name: Build Windows installer
+        run: |
+          npm run release
+          cp "src-tauri/target/release/bundle/nsis/${NAME}_${VER}_x64-setup.exe" "$RUNNER_TEMP/"
+          gh release upload "$TAG" "$RUNNER_TEMP/${NAME}_${VER}_x64-setup.exe" --clobber
+
+  publish:
+    needs: [meta, build]
+    runs-on: ubuntu-latest
+    steps:
+      - env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release edit "${{ needs.meta.outputs.tag }}" --repo "${{ github.repository }}" --draft=false

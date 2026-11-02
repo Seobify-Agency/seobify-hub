@@ -1,0 +1,124 @@
+.setup-screen {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: var(--color-bg, #1a1a2e);
+  padding: 2rem;
+}
+
+.setup-screen__card {
+  max-width: 640px;
+  width: 100%;
+  background: var(--color-surface, #16213e);
+  border: 1px solid var(--color-border, #333);
+  border-radius: 12px;
+  padding: 2.5rem;
+  text-align: center;
+}
+
+.setup-screen__icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.setup-screen__title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--color-text, #e0e0e0);
+  margin: 0 0 0.75rem;
+}
+
+.setup-screen__description {
+  color: var(--color-text-secondary, #aaa);
+  line-height: 1.6;
+  margin: 0 0 1.5rem;
+}
+
+.setup-screen__instructions {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  text-align: left;
+  margin-bottom: 1.5rem;
+}
+
+.instruction-block {
+  background: var(--color-bg, #1a1a2e);
+  border: 1px solid var(--color-border, #333);
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+}
+
+.instruction-block--highlight {
+  border-color: var(--color-accent, #6c63ff);
+  box-shadow: 0 0 0 1px var(--color-accent, #6c63ff);
+}
+
+.instruction-block__title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-text, #e0e0e0);
+  margin: 0 0 0.5rem;
+}
+
+.instruction-block__step {
+  color: var(--color-text-secondary, #aaa);
+  font-size: 0.85rem;
+  margin: 0 0 0.25rem;
+  line-height: 1.5;
+}
+
+.instruction-block__command {
+  background: #0d1117;
+  border: 1px solid var(--color-border, #333);
+  border-radius: 4px;
+  padding: 0.5rem 0.75rem;
+  font-family: "Fira Code", "Consolas", monospace;
+  font-size: 0.85rem;
+  color: #7ee787;
+  margin: 0.5rem 0 0;
+  overflow-x: auto;
+}
+
+.setup-screen__error {
+  color: #ff6b6b;
+  font-size: 0.85rem;
+  margin: 0 0 1rem;
+}
+
+.setup-screen__button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 2rem;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #fff;
+  background: var(--color-accent, #6c63ff);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.setup-screen__button:hover:not(:disabled) {
+  background: #5a52d5;
+}
+
+.setup-screen__button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.setup-screen__button--secondary {
+  margin-left: 0.75rem;
+  background: transparent;
+  color: var(--accent);
+  border: 1px solid var(--border-hover);
+}
+
+.setup-screen__button--secondary:hover:not(:disabled) {
+  background: var(--accent-muted);
+}

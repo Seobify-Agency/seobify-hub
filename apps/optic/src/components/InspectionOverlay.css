@@ -1,0 +1,41 @@
+.inspection-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 5;
+}
+
+.inspection-overlay--interactive {
+  pointer-events: auto;
+}
+
+.inspection-overlay__canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.inspection-overlay__loupe {
+  position: absolute;
+  border: 2px solid var(--accent);
+  border-radius: 50%;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+  pointer-events: none;
+  image-rendering: pixelated;
+}
+
+.inspection-overlay__info {
+  position: absolute;
+  top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(30, 30, 60, 0.9);
+  color: #ffc107;
+  font-size: 0.8rem;
+  padding: 6px 14px;
+  border-radius: 6px;
+  z-index: 10;
+  white-space: nowrap;
+  pointer-events: auto;
+}

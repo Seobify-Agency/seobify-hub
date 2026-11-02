@@ -1,0 +1,41 @@
+.hub-header {
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  padding: 10px 20px;
+  background: linear-gradient(180deg, #141414 0%, #0d0d0d 100%);
+  border-bottom: 1px solid var(--border-color);
+  box-shadow: inset 0 -1px 0 rgba(200, 167, 77, 0.08);
+  flex-shrink: 0;
+}
+.hub-header__brand { display: flex; align-items: center; gap: 12px; min-width: 0; }
+.hub-header__logo { height: 26px; width: auto; user-select: none; }
+.hub-header__divider { width: 1px; height: 24px; background: var(--border-hover); }
+.hub-header__product { display: flex; flex-direction: column; line-height: 1.05; }
+.hub-header__product-name {
+  font-size: 18px; font-weight: 700; letter-spacing: 0.22em;
+  background: linear-gradient(90deg, #fce1a4 0%, #c8a74d 55%, #f2f2f2 100%);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.hub-header__product-sub { font-size: 10px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); }
+.hub-header__controls { display: flex; align-items: center; gap: 12px; }
+.hub-header__project { display: flex; align-items: center; gap: 8px; font-size: 12px; }
+.hub-header__project .select { min-width: 220px; height: 32px; }
+
+.sidebar {
+  width: var(--sidebar-w); flex-shrink: 0;
+  background: var(--bg-secondary);
+  border-right: 1px solid var(--border-subtle);
+  display: flex; flex-direction: column; gap: 2px;
+  padding: 14px 10px; overflow-y: auto;
+}
+.sidebar__section { font-size: 10.5px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); padding: 14px 10px 6px; }
+.sidebar__item {
+  display: flex; align-items: center; gap: 10px;
+  padding: 8px 10px; border-radius: var(--radius-md);
+  border: 1px solid transparent; background: transparent;
+  color: var(--text-secondary); font-weight: 600; text-align: left; cursor: pointer;
+  transition: background var(--transition), color var(--transition);
+}
+.sidebar__item:hover { background: var(--bg-tertiary); color: var(--text-primary); }
+.sidebar__item--active { background: var(--accent-muted); color: var(--accent-hover); border-color: var(--border-color); }
+.sidebar__icon { width: 18px; text-align: center; font-size: 15px; }
+.sidebar__foot { margin-top: auto; padding: 12px 10px 2px; font-size: 11px; color: var(--text-muted); line-height: 1.5; }

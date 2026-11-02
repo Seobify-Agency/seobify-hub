@@ -1,0 +1,11 @@
+{
+  "redirects": [
+    { "source": "/", "destination": "https://yeni.com/", "permanent": true },
+    { "source": "/blog/2024/05/kahve/", "destination": "https://yeni.com/makale/kahve/", "permanent": true },
+    { "source": "/blog/2024/05/ozel/", "destination": "https://yeni.com/ozel-sayfa", "permanent": true },
+    { "source": "/fiyat-%24-listesi", "destination": "https://yeni.com/fiyatlar?para=%24", "permanent": true },
+    { "source": "/hakkimizda/", "destination": "https://yeni.com/kurumsal/hakkimizda", "permanent": true },
+    { "source": "/hizmetler/%C3%A7ay%20bah%C3%A7esi/", "destination": "https://yeni.com/hizmet/%C3%A7ay-bah%C3%A7esi", "permanent": true },
+    { "source": "/index.php", "has": [{ "type": "query", "key": "id", "value": "5" }], "destination": "https://yeni.com/urun/5", "permanent": true }
+  ]
+}

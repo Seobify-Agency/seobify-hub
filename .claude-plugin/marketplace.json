@@ -1,0 +1,20 @@
+{
+  "name": "seobify",
+  "owner": {
+    "name": "Seobify",
+    "email": "dev@seobify.com"
+  },
+  "metadata": {
+    "description": "Seobify Hub: free, open-source, local-first SEO desktop tools (Log, Migrate, Optic) for Claude Code.",
+    "version": "0.3.0"
+  },
+  "plugins": [
+    {
+      "name": "seobify-hub",
+      "source": "./plugin",
+      "description": "Registers the installed Seobify Hub tools (Log, Migrate, Optic) as MCP servers and adds a site migration workflow.",
+      "version": "0.3.0",
+      "category": "productivity"
+    }
+  ]
+}

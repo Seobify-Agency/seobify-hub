@@ -1,0 +1,63 @@
+[package]
+name = "seobify-log"
+version = "0.1.6"
+description = "Seobify Log — Local server log analyzer for search engine and AI crawler activity."
+authors = ["Seobify Agency"]
+license = "AGPL-3.0-only"
+repository = "https://github.com/Seobify-Agency/seobify-hub"
+edition = "2021"
+rust-version = "1.80"
+default-run = "seobify-log"
+
+[lib]
+name = "app_lib"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[[bin]]
+name = "seobify-log"
+path = "src/main.rs"
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+# --- Seobify Hub shared stack (keep in sync with seobify-hub/template) ---
+tauri = { version = "2", features = ["tray-icon"] }
+tauri-plugin-dialog = "2"
+tauri-plugin-opener = "2"
+tauri-plugin-notification = "2"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+tokio = { version = "1", features = ["rt-multi-thread", "macros", "fs", "time", "process", "sync"] }
+rusqlite = { version = "0.32", features = ["bundled"] }
+# HUB-SYNC: rustls-tls-native-roots added so TLS works behind antivirus/corporate HTTPS inspection
+# (TLS-inspecting antivirus software re-signs some hosts with a root that exists only in the OS certificate store).
+reqwest = { version = "0.12", default-features = false, features = ["rustls-tls", "rustls-tls-native-roots", "json", "gzip", "brotli", "deflate"] }
+chrono = { version = "0.4", features = ["serde"] }
+csv = "1"
+dirs = "5"
+url = "2"
+quick-xml = "0.36"
+keyring = { version = "3", features = ["windows-native", "apple-native", "linux-native"] }
+flate2 = "1"
+sha2 = "0.10"
+log = "0.4"
+# --- Tool-specific dependencies below ---
+dns-lookup = "4"
+
+[dev-dependencies]
+tempfile = "3"
+
+# Keep dev builds fast to run but cheap to link: optimise deps, skip their debuginfo.
+[profile.dev]
+opt-level = 1
+debug = "line-tables-only"
+
+[profile.dev.package."*"]
+opt-level = 3
+debug = false
+
+[profile.release]
+codegen-units = 4
+lto = "thin"
+strip = "debuginfo"

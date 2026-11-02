@@ -1,0 +1,20 @@
+# Pull requests from outside the Seobify organization are not accepted (see CONTRIBUTING.md).
+# pull_request_target runs with the base repository's token; the PR's code is never checked out.
+name: Close outside pull requests
+
+on:
+  pull_request_target:
+    types: [opened, reopened]
+
+permissions:
+  pull-requests: write
+
+jobs:
+  close:
+    if: ${{ !contains(fromJSON('["OWNER","MEMBER","COLLABORATOR"]'), github.event.pull_request.author_association) }}
+    runs-on: ubuntu-latest
+    steps:
+      - env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh pr close "${{ github.event.pull_request.number }}" --repo "${{ github.repository }}" --comment "Thank you. We do not accept pull requests at the moment, see CONTRIBUTING.md; please open an issue instead. / Teşekkürler. Şimdilik kod katkısı kabul etmiyoruz, lütfen issue açın."

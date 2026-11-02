@@ -1,0 +1,20 @@
+{
+  "name": "seobify-hub",
+  "version": "0.3.0",
+  "description": "Seobify Hub tools as MCP servers (Log, Migrate, Optic) plus a site migration workflow. Requires the tools' installers from https://github.com/Seobify-Agency/seobify-hub/releases.",
+  "author": {
+    "name": "Seobify",
+    "url": "https://seobify.com"
+  },
+  "homepage": "https://github.com/Seobify-Agency/seobify-hub",
+  "repository": "https://github.com/Seobify-Agency/seobify-hub",
+  "license": "AGPL-3.0-only",
+  "keywords": [
+    "seo",
+    "log-analysis",
+    "redirects",
+    "site-migration",
+    "image-optimization",
+    "metadata"
+  ]
+}

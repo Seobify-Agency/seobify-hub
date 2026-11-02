@@ -1,0 +1,6 @@
+eski.com/,https://yeni.com/,301,TRUE,FALSE,FALSE,FALSE
+eski.com/blog/2024/05/kahve/,https://yeni.com/makale/kahve/,301,TRUE,FALSE,FALSE,FALSE
+eski.com/blog/2024/05/ozel/,https://yeni.com/ozel-sayfa,301,TRUE,FALSE,FALSE,FALSE
+eski.com/fiyat-%24-listesi,https://yeni.com/fiyatlar?para=%24,301,TRUE,FALSE,FALSE,FALSE
+eski.com/hakkimizda/,https://yeni.com/kurumsal/hakkimizda,301,TRUE,FALSE,FALSE,FALSE
+eski.com/hizmetler/%C3%A7ay%20bah%C3%A7esi/,https://yeni.com/hizmet/%C3%A7ay-bah%C3%A7esi,301,TRUE,FALSE,FALSE,FALSE

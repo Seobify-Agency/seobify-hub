@@ -1,0 +1,60 @@
+{
+  "$schema": "../node_modules/@tauri-apps/cli/config.schema.json",
+  "productName": "Seobify Migrate",
+  "mainBinaryName": "seobify-migrate",
+  "version": "0.1.5",
+  "identifier": "com.seobify.migrate",
+  "build": {
+    "frontendDist": "../dist",
+    "devUrl": "http://localhost:1434",
+    "beforeDevCommand": "npm run dev",
+    "beforeBuildCommand": "npm run build"
+  },
+  "app": {
+    "windows": [
+      {
+        "label": "main",
+        "title": "Seobify Migrate — Seobify Hub",
+        "width": 1320,
+        "height": 840,
+        "minWidth": 1000,
+        "minHeight": 660,
+        "resizable": true,
+        "fullscreen": false,
+        "decorations": true,
+        "backgroundColor": "#0d0d0d"
+      }
+    ],
+    "security": {
+      "csp": "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; font-src 'self' data:; connect-src 'self' ipc: http://ipc.localhost; worker-src 'self' blob:; object-src 'none'; frame-src 'none'; base-uri 'self'; form-action 'none'"
+    }
+  },
+  "bundle": {
+    "active": true,
+    "targets": ["nsis"],
+    "publisher": "Seobify Agency",
+    "copyright": "© Seobify Agency",
+    "category": "Productivity",
+    "shortDescription": "Maps old URLs to new ones, generates redirect rules and verifies them after launch.",
+    "longDescription": "Seobify Migrate — Maps old URLs to new ones, generates redirect rules and verifies them after launch. Part of Seobify Hub.",
+    "icon": [
+      "icons/32x32.png",
+      "icons/128x128.png",
+      "icons/128x128@2x.png",
+      "icons/icon.icns",
+      "icons/icon.ico"
+    ],
+    "macOS": {
+      "signingIdentity": "-",
+      "minimumSystemVersion": "11.0"
+    },
+    "windows": {
+      "nsis": {
+        "installMode": "currentUser",
+        "languages": ["Turkish", "English"],
+        "displayLanguageSelector": false
+      }
+    }
+  },
+  "plugins": {}
+}

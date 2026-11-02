@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Security problem / Güvenlik sorunu
+    url: https://github.com/Seobify-Agency/seobify-hub/blob/main/SECURITY.md
+    about: Report privately to dev@seobify.com / dev@seobify.com adresine gizli bildirin

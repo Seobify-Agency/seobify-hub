@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Seobify Migrate — Test planı (https://eski.com → https://yeni.com) · 7 tekil kural, 1 desen kuralı, 1 × 410 -->
+<!-- Eşleme anahtarları çözülmüş ve kodlanmış biçimde eklendi; {URL} hangi biçimde gelirse eşleşir. -->
+<configuration>
+  <system.webServer>
+    <rewrite>
+      <rewriteMaps>
+        <rewriteMap name="SeobifyRedirects" defaultValue="">
+          <add key="/" value="https://yeni.com/" />
+          <add key="/blog/2024/05/ozel/" value="https://yeni.com/ozel-sayfa" />
+          <add key="/fiyat-$-listesi" value="https://yeni.com/fiyatlar?para=%24" />
+          <add key="/fiyat-%24-listesi" value="https://yeni.com/fiyatlar?para=%24" />
+          <add key="/hakkimizda/" value="https://yeni.com/kurumsal/hakkimizda" />
+          <add key="/hizmetler/çay bahçesi/" value="https://yeni.com/hizmet/%C3%A7ay-bah%C3%A7esi" />
+          <add key="/hizmetler/%C3%A7ay%20bah%C3%A7esi/" value="https://yeni.com/hizmet/%C3%A7ay-bah%C3%A7esi" />
+        </rewriteMap>
+        <rewriteMap name="SeobifyRedirectsQuery" defaultValue="">
+          <add key="/index.php?id=5" value="https://yeni.com/urun/5" />
+        </rewriteMap>
+        <rewriteMap name="SeobifyGone" defaultValue="">
+          <add key="/eski-kampanya/" value="410" />
+        </rewriteMap>
+      </rewriteMaps>
+      <rules>
+        <rule name="Seobify 410" stopProcessing="true">
+          <match url=".*" />
+          <conditions>
+            <add input="{SeobifyGone:{URL}}" pattern="(.+)" />
+          </conditions>
+          <action type="CustomResponse" statusCode="410" statusReason="Gone" statusDescription="Gone" />
+        </rule>
+        <rule name="Seobify redirects (query)" stopProcessing="true">
+          <match url=".*" />
+          <conditions>
+            <add input="{SeobifyRedirectsQuery:{UNENCODED_URL}}" pattern="(.+)" />
+          </conditions>
+          <action type="Redirect" url="{C:1}" appendQueryString="false" redirectType="Permanent" />
+        </rule>
+        <rule name="Seobify redirects" stopProcessing="true">
+          <match url=".*" />
+          <conditions>
+            <add input="{SeobifyRedirects:{URL}}" pattern="(.+)" />
+          </conditions>
+          <action type="Redirect" url="{C:1}" appendQueryString="true" redirectType="Permanent" />
+        </rule>
+        <rule name="Seobify pattern 1" stopProcessing="true">
+          <match url="^blog/\d{4}/\d{2}/(.+)$" />
+          <action type="Redirect" url="https://yeni.com/makale/{R:1}" appendQueryString="true" redirectType="Permanent" />
+        </rule>
+      </rules>
+    </rewrite>
+  </system.webServer>
+</configuration>

@@ -1,0 +1,20 @@
+# Seobify Migrate — Test planı (https://eski.com → https://yeni.com)
+# 7 tekil kural, 1 desen kuralı, 1 × 410
+# mod_rewrite kuralları mod_alias Redirect satırlarından önce çalışır.
+
+RewriteEngine On
+
+# Desenlerden önce çalışması gereken tekil kurallar (istisnalar, sorgu parametreleri, 410)
+RewriteRule ^/?$ https://yeni.com/ [R=301,L,NE]
+RewriteRule ^/?blog/2024/05/ozel/?$ https://yeni.com/ozel-sayfa [R=301,L,NE]
+RewriteCond %{QUERY_STRING} ^id=5$
+RewriteRule ^/?index\.php/?$ https://yeni.com/urun/5 [R=301,L,NE,QSD]
+
+# Desen kuralları
+RewriteRule ^/?blog/\d{4}/\d{2}/(.+)$ https://yeni.com/makale/$1 [R=301,L]
+
+# Tekil yönlendirmeler, en özelden genele (Redirect yol önekiyle eşleşir; RedirectMatch tam eşleşir)
+RedirectMatch 301 "^/hizmetler/çay bahçesi/$" https://yeni.com/hizmet/%C3%A7ay-bah%C3%A7esi
+Redirect 301 /fiyat-$-listesi https://yeni.com/fiyatlar?para=%24
+Redirect 410 /eski-kampanya/
+RedirectMatch 301 ^/hakkimizda/$ https://yeni.com/kurumsal/hakkimizda

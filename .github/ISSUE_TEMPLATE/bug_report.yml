@@ -1,0 +1,25 @@
+name: Bug report / Hata bildirimi
+description: Something does not work as expected / Bir şey beklendiği gibi çalışmıyor
+labels: [bug]
+body:
+  - type: dropdown
+    id: tool
+    attributes:
+      label: Tool / Araç
+      options: [Log, Migrate, Optic, Claude plugin]
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Version and OS / Sürüm ve işletim sistemi
+      placeholder: "Seobify Log 0.1.6, Windows 11"
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps and what happened / Adımlar ve ne oldu
+      description: Do not paste API keys, tokens or client data. / API anahtarı, token ya da müşteri verisi yapıştırmayın.
+    validations:
+      required: true

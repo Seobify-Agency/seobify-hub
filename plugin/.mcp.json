@@ -1,0 +1,16 @@
+{
+  "mcpServers": {
+    "seobify-log": {
+      "command": "${LOCALAPPDATA}\\Seobify Log\\seobify-log.exe",
+      "args": ["--mcp"]
+    },
+    "seobify-migrate": {
+      "command": "${LOCALAPPDATA}\\Seobify Migrate\\seobify-migrate.exe",
+      "args": ["--mcp"]
+    },
+    "seobify-optic": {
+      "command": "${LOCALAPPDATA}\\Seobify Optic\\seobify-optic.exe",
+      "args": ["--mcp"]
+    }
+  }
+}

@@ -1,0 +1,139 @@
+.batch-queue {
+  width: 260px;
+  min-width: 260px;
+  background: var(--bg-secondary);
+  border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.batch-queue__header {
+  padding: 12px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.batch-queue__title {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.batch-queue__option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--border);
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+.btn-primary--sm {
+  padding: 4px 10px;
+  font-size: 12px;
+}
+
+.batch-queue__list {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.batch-queue__item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  cursor: pointer;
+  border-bottom: 1px solid var(--border);
+  transition: background 0.1s;
+}
+
+.batch-queue__item:hover {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.batch-queue__item--selected {
+  background: rgba(200, 167, 77, 0.1);
+  border-left: 2px solid var(--accent);
+}
+
+.batch-queue__status {
+  font-size: 14px;
+  width: 20px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.batch-queue__info {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.batch-queue__name {
+  font-size: 12px;
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.batch-queue__size {
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+.batch-queue__actions {
+  display: flex;
+  gap: 2px;
+  opacity: 0;
+  transition: opacity 0.15s;
+}
+
+.batch-queue__item:hover .batch-queue__actions {
+  opacity: 1;
+}
+
+.batch-queue__btn {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  font-size: 12px;
+  border-radius: 3px;
+}
+
+.batch-queue__btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--text-primary);
+}
+
+.batch-queue__btn--remove:hover {
+  color: var(--error);
+}
+
+.badge-pending { color: var(--text-muted); }
+.badge-processing { color: var(--accent); }
+.badge-completed { color: var(--success); }
+.badge-failed { color: var(--error); }
+
+.batch-queue__item--loading {
+  opacity: 0.6;
+}
+
+.badge-loading {
+  background: var(--accent-muted);
+  color: var(--accent);
+}

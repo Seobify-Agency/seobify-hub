@@ -1,0 +1,69 @@
+/* Seobify Migrate screens. Uses the design tokens from globals.css only. */
+
+.split { display: grid; grid-template-columns: minmax(0, 1fr) 350px; gap: 16px; align-items: start; }
+.split__side { position: sticky; top: 0; display: flex; flex-direction: column; gap: 14px; max-height: calc(100vh - 150px); overflow: auto; padding-right: 2px; }
+@media (max-width: 1240px) { .split { grid-template-columns: minmax(0, 1fr); } .split__side { position: static; max-height: none; } }
+
+.table-wrap--tall { max-height: calc(100vh - 330px); min-height: 360px; }
+.mapping-table td { vertical-align: middle; }
+.mapping-table .cell-url { max-width: 185px; }
+.mapping-table .cell-sub { font-size: 11.5px; margin-top: 2px; }
+.table tbody tr.selected td { background: var(--accent-muted); }
+.approved-mark { color: var(--success); font-weight: 700; }
+.break { word-break: break-all; }
+.stack { display: flex; flex-direction: column; gap: 8px; }
+
+.filters { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; align-items: end; }
+
+.chip {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 4px 9px; border-radius: 999px;
+  border: 1px solid var(--border-subtle); background: var(--bg-primary);
+  color: var(--text-secondary); font-size: 12.5px; cursor: pointer;
+  transition: border-color var(--transition), background var(--transition);
+}
+.chip:hover:not(:disabled) { border-color: var(--border-hover); }
+.chip:disabled { opacity: 0.5; cursor: default; }
+.chip--active { border-color: var(--border-hover); background: var(--accent-muted); color: var(--accent-hover); }
+
+.cand { border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 10px; display: flex; flex-direction: column; gap: 5px; background: var(--bg-primary); }
+.cand--active { border-color: var(--border-hover); box-shadow: inset 3px 0 0 var(--accent); }
+.meter { display: grid; grid-template-columns: 84px minmax(0, 1fr) 30px; gap: 8px; align-items: center; font-size: 11.5px; color: var(--text-muted); }
+.meter__bar { height: 5px; background: var(--bg-hover); border-radius: 999px; overflow: hidden; display: block; }
+.meter__fill { height: 100%; background: var(--accent-gradient); display: block; }
+
+.result { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 8px; align-items: center; padding: 6px 8px; border-radius: var(--radius-sm); background: var(--bg-primary); }
+
+.suggestion { border: 1px dashed var(--border-color); border-radius: var(--radius-md); padding: 10px 12px; display: flex; flex-direction: column; gap: 6px; font-size: 13px; }
+.suggestion code { background: var(--accent-muted); color: var(--accent-hover); padding: 1px 6px; border-radius: 4px; }
+
+.issue-list { display: flex; flex-direction: column; gap: 4px; max-height: 320px; overflow: auto; }
+.issue {
+  display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 8px; align-items: center;
+  text-align: left; padding: 5px 8px; border: 0; border-radius: var(--radius-sm);
+  background: var(--bg-primary); color: var(--text-secondary); cursor: pointer; font-size: 12px;
+}
+.issue:hover { background: var(--bg-tertiary); }
+
+.format-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 8px; }
+.format-btn {
+  display: flex; flex-direction: column; align-items: flex-start; gap: 4px; text-align: left;
+  padding: 10px 12px; border-radius: var(--radius-md); border: 1px solid var(--border-subtle);
+  background: var(--bg-primary); color: var(--text-primary); cursor: pointer;
+}
+.format-btn span { font-size: 11.5px; }
+.format-btn:hover { border-color: var(--border-hover); }
+.format-btn--active { border-color: var(--accent); background: var(--accent-muted); box-shadow: var(--accent-glow); }
+
+.code--tall { max-height: 560px; overflow: auto; white-space: pre; }
+
+.steps { display: flex; flex-direction: column; gap: 6px; }
+.step {
+  display: grid; grid-template-columns: 26px minmax(0, 1fr); gap: 10px; align-items: center; text-align: left;
+  padding: 8px 10px; border-radius: var(--radius-md); border: 1px solid var(--border-subtle);
+  background: var(--bg-primary); color: var(--text-primary); cursor: pointer;
+}
+.step:hover { border-color: var(--border-hover); }
+.step__n { width: 24px; height: 24px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; background: var(--bg-hover); color: var(--text-secondary); }
+.step--done .step__n { background: rgba(34, 197, 94, 0.18); color: var(--success); }
+.step__hint { display: block; font-size: 12px; font-weight: 500; margin-top: 2px; }

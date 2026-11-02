@@ -1,0 +1,9 @@
+source,target,regex,code,type,hits,title,status
+/,https://yeni.com/,0,301,url,0,,active
+/blog/2024/05/ozel/,https://yeni.com/ozel-sayfa,0,301,url,0,,active
+/eski-kampanya/,,0,410,error,0,,active
+/fiyat-$-listesi,https://yeni.com/fiyatlar?para=%24,0,301,url,0,,active
+/hakkimizda/,https://yeni.com/kurumsal/hakkimizda,0,301,url,0,,active
+/hizmetler/çay bahçesi/,https://yeni.com/hizmet/%C3%A7ay-bah%C3%A7esi,0,301,url,0,,active
+/index.php?id=5,https://yeni.com/urun/5,0,301,url,0,,active
+^/blog/\d{4}/\d{2}/(.+)$,https://yeni.com/makale/$1,1,301,url,0,Seobify pattern 1,active

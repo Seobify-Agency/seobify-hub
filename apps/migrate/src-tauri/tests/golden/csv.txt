@@ -1,0 +1,9 @@
+old,new,status,confidence,reason
+https://eski.com/,https://yeni.com/,301,90,same_path
+https://eski.com/blog/2024/05/kahve/,https://yeni.com/makale/kahve/,301,90,pattern:1
+https://eski.com/blog/2024/05/ozel/,https://yeni.com/ozel-sayfa,301,90,manual
+https://eski.com/eski-kampanya/,,410,90,manual_gone
+https://eski.com/fiyat-$-listesi,https://yeni.com/fiyatlar?para=%24,301,90,fuzzy
+https://eski.com/hakkimizda/,https://yeni.com/kurumsal/hakkimizda,301,90,same_title
+https://eski.com/hizmetler/%C3%A7ay%20bah%C3%A7esi/,https://yeni.com/hizmet/%C3%A7ay-bah%C3%A7esi,301,90,same_slug
+https://eski.com/index.php?id=5,https://yeni.com/urun/5,301,90,manual
