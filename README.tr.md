@@ -64,7 +64,7 @@ npm install
 npm run tauri dev
 ```
 
-Kontroller: `npm test`, `npm run build`, `cargo test --manifest-path src-tauri/Cargo.toml`. Kurulum paketi: `npm run release`. Bazı özellikler tarama aracımız Seobify Spider'a bağlanır; Spider herkese açık değildir, araçlar onsuz da çalışır.
+Kontroller: `npm test`, `npm run build`, `cargo test --manifest-path src-tauri/Cargo.toml`. Kurulum paketi: `npm run release`. Bazı özellikler ücretsiz tarama aracımız Seobify Spider'ın taramalarını okur ([indir](https://github.com/Seobify-Agency/seobify-spider-releases/releases)); araçlar onsuz da çalışır.
 
 ## Geri bildirim ve güvenlik
 

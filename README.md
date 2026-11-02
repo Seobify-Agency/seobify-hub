@@ -64,7 +64,7 @@ npm install
 npm run tauri dev
 ```
 
-Checks: `npm test`, `npm run build`, `cargo test --manifest-path src-tauri/Cargo.toml`. Installer: `npm run release`. Some features connect to Seobify Spider, our crawler, which is not public; the tools work without it.
+Checks: `npm test`, `npm run build`, `cargo test --manifest-path src-tauri/Cargo.toml`. Installer: `npm run release`. Some features read crawls from Seobify Spider, our free crawler ([download](https://github.com/Seobify-Agency/seobify-spider-releases/releases)); the tools work without it.
 
 ## Feedback and security
 
