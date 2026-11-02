@@ -12,7 +12,7 @@
 
 ## Kurulum
 
-**Windows 10/11:** ihtiyacınız olan aracın kurulum dosyasını [son sürümden](https://github.com/Seobify-Agency/seobify-hub/releases/latest) indirip çalıştırın. Yalnız sizin kullanıcınıza kurulur, yönetici izni gerekmez.
+**Windows 10/11:** ihtiyacınız olan aracın kurulum dosyasını [son sürümden](https://github.com/Seobify-Agency/seobify-hub/releases/latest) indirip çalıştırın. Yalnız sizin kullanıcınıza kurulur, yönetici izni gerekmez. Kurulum dosyaları henüz kod imzalı değil: Windows "Windows bilgisayarınızı korudu" uyarısı gösterirse "Ek bilgi" → "Yine de çalıştır" deyin. İmzalı sürümler ardından gelecek.
 
 **macOS:** henüz yok.
 

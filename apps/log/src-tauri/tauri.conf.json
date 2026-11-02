@@ -2,7 +2,7 @@
   "$schema": "../node_modules/@tauri-apps/cli/config.schema.json",
   "productName": "Seobify Log",
   "mainBinaryName": "seobify-log",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "identifier": "com.seobify.log",
   "build": {
     "frontendDist": "../dist",

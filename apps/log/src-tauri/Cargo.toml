@@ -1,6 +1,6 @@
 [package]
 name = "seobify-log"
-version = "0.1.6"
+version = "0.1.7"
 description = "Seobify Log — Local server log analyzer for search engine and AI crawler activity."
 authors = ["Seobify Agency"]
 license = "AGPL-3.0-only"

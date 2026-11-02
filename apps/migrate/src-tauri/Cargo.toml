@@ -1,6 +1,6 @@
 [package]
 name = "seobify-migrate"
-version = "0.1.5"
+version = "0.1.6"
 description = "Seobify Migrate — Maps old URLs to new ones, generates redirect rules and verifies them after launch."
 authors = ["Seobify Agency"]
 license = "AGPL-3.0-only"
