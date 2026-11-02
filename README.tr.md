@@ -23,6 +23,30 @@
 /plugin install seobify-hub@seobify
 ```
 
+## Diğer yapay zeka araçlarıyla kullanım
+
+Her araç standart bir MCP sunucusudur (stdio): kurulu program `--mcp` ile başlatılır. Her uygulamada Ayarlar → Claude / MCP bölümü bilgisayarınıza özel komutu ve JSON'u gösterir. Aşağıdaki yollar varsayılan kullanıcı kurulumuna göredir.
+
+**OpenAI Codex**
+
+```text
+codex mcp add seobify-log -- "%LOCALAPPDATA%\Seobify Log\seobify-log.exe" --mcp
+codex mcp add seobify-migrate -- "%LOCALAPPDATA%\Seobify Migrate\seobify-migrate.exe" --mcp
+codex mcp add seobify-optic -- "%LOCALAPPDATA%\Seobify Optic\seobify-optic.exe" --mcp
+```
+
+**Gemini CLI** (`~/.gemini/settings.json`), **Google Antigravity** (MCP sunucuları → ham yapılandırma), **Claude Desktop** (`claude_desktop_config.json`), **Cursor** (`~/.cursor/mcp.json`) ve diğer MCP istemcileri aynı JSON'u kullanır. `<kullanıcı>` yerine Windows kullanıcı adınızı yazın:
+
+```json
+{
+  "mcpServers": {
+    "seobify-log": { "command": "C:\\Users\\<kullanıcı>\\AppData\\Local\\Seobify Log\\seobify-log.exe", "args": ["--mcp"] },
+    "seobify-migrate": { "command": "C:\\Users\\<kullanıcı>\\AppData\\Local\\Seobify Migrate\\seobify-migrate.exe", "args": ["--mcp"] },
+    "seobify-optic": { "command": "C:\\Users\\<kullanıcı>\\AppData\\Local\\Seobify Optic\\seobify-optic.exe", "args": ["--mcp"] }
+  }
+}
+```
+
 ## Gizlilik
 
 - Veriler `~/Seobify/<Araç>` klasöründe kalır (Windows'ta `C:\Users\<kullanıcı>\Seobify\<Araç>`). Aracı kaldırmak verileri silmez.

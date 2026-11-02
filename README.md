@@ -23,6 +23,30 @@ Free, open-source SEO desktop tools built by [Seobify](https://seobify.com/en/).
 /plugin install seobify-hub@seobify
 ```
 
+## Use with other AI tools
+
+Every tool is a standard MCP server (stdio): the installed program started with `--mcp`. Under Settings → Claude / MCP each app shows the exact command and JSON for your machine. The paths below assume the default per-user install.
+
+**OpenAI Codex**
+
+```text
+codex mcp add seobify-log -- "%LOCALAPPDATA%\Seobify Log\seobify-log.exe" --mcp
+codex mcp add seobify-migrate -- "%LOCALAPPDATA%\Seobify Migrate\seobify-migrate.exe" --mcp
+codex mcp add seobify-optic -- "%LOCALAPPDATA%\Seobify Optic\seobify-optic.exe" --mcp
+```
+
+**Gemini CLI** (`~/.gemini/settings.json`), **Google Antigravity** (MCP servers → raw config), **Claude Desktop** (`claude_desktop_config.json`), **Cursor** (`~/.cursor/mcp.json`) and other MCP clients use the same JSON. Replace `<you>` with your Windows user name:
+
+```json
+{
+  "mcpServers": {
+    "seobify-log": { "command": "C:\\Users\\<you>\\AppData\\Local\\Seobify Log\\seobify-log.exe", "args": ["--mcp"] },
+    "seobify-migrate": { "command": "C:\\Users\\<you>\\AppData\\Local\\Seobify Migrate\\seobify-migrate.exe", "args": ["--mcp"] },
+    "seobify-optic": { "command": "C:\\Users\\<you>\\AppData\\Local\\Seobify Optic\\seobify-optic.exe", "args": ["--mcp"] }
+  }
+}
+```
+
 ## Privacy
 
 - Data stays in `~/Seobify/<Tool>` (Windows: `C:\Users\<you>\Seobify\<Tool>`). Uninstalling a tool does not delete it.
