@@ -18,7 +18,7 @@ Local server log analyzer for search engine and AI crawler activity. Part of **S
 
 ## Install
 
-Download the latest `Seobify Log_x.y.z_x64-setup.exe` from the [Seobify Hub releases](https://github.com/Seobify-Agency/seobify-hub/releases/latest) and run it (per-user install, no admin rights).
+Download the newest `Seobify.Log_x.y.z_x64-setup.exe` from the [Seobify Hub releases](https://github.com/Seobify-Agency/seobify-hub/releases) and run it (per-user install, no admin rights).
 
 ## Use with Claude (MCP)
 

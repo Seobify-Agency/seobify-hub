@@ -18,7 +18,7 @@ MCP tools: `list_plans`, `create_plan`, `import_urls`, `auto_match`, `list_mappi
 
 ## Install
 
-Download the latest `Seobify Migrate_x.y.z_x64-setup.exe` from the [Seobify Hub releases](https://github.com/Seobify-Agency/seobify-hub/releases/latest) and run it (per-user install, no admin rights).
+Download the newest `Seobify.Migrate_x.y.z_x64-setup.exe` from the [Seobify Hub releases](https://github.com/Seobify-Agency/seobify-hub/releases) and run it (per-user install, no admin rights).
 
 ## Use with Claude (MCP)
 

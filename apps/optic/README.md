@@ -1,6 +1,6 @@
 # Seobify Optic
 
-Part of [Seobify Hub](../../README.md). Download the installer from the [Seobify Hub releases](https://github.com/Seobify-Agency/seobify-hub/releases/latest).
+Part of [Seobify Hub](../../README.md). Download the installer from the [Seobify Hub releases](https://github.com/Seobify-Agency/seobify-hub/releases).
 
 ## Develop
 

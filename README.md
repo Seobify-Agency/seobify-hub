@@ -12,7 +12,7 @@ Free, open-source SEO desktop tools built by [Seobify](https://seobify.com/en/).
 
 ## Install
 
-**Windows 10/11:** download the installer of the tool you need from the [latest release](https://github.com/Seobify-Agency/seobify-hub/releases/latest) and run it. It installs for your user only, no administrator rights needed. The installers are not code-signed yet: if Windows shows "Windows protected your PC", choose More info → Run anyway. Signed builds will follow.
+**Windows 10/11:** download the installer of the tool you need from the [releases page](https://github.com/Seobify-Agency/seobify-hub/releases) and run it. It installs for your user only, no administrator rights needed. The installers are not code-signed yet: if Windows shows "Windows protected your PC", choose More info → Run anyway. Signed builds will follow.
 
 **macOS:** not available yet.
 
